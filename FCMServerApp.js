@@ -3,7 +3,9 @@ const FCM = require('fcm-node');
 const FCMServerApp = express();
 
 const serverKey = 'AAAAXaMYhJo:APA91bHBW0vg02GrIA9xTfntBkW2mtL12pX-DDuW8MJzfDOLRwu3h84Y4lBQ8aoo5Fh98szp5S3OMeo0j6SxIoWiqX3cF4L649McfN34YihxxQQ3Ljkk8RiYUdqloWtG9JjJBg_HfxzB';
-const referenceKey = 'cSVyO9tyAVU:APA91bHAeK6ubWpDODMwTXWwvb_cbE35zF9ep9_l-f8CpRPOnShZ3hlBYYtN0G7c9D7U8FRj8LqXGBwXnYn-l_31sXgK0RSEOsJLTlc4EJvl7SMsnBdq-HXUP1oEUkGxwBM2e05aPC1U'; //Device Key
+const serverKey2 = 'AAAAXaMYhJo:APA91bHBW0vg02GrIA9xTfntBkW2mtL12pX-DDuW8MJzfDOLRwu3h84Y4lBQ8aoo5Fh98szp5S3OMeo0j6SxIoWiqX3cF4L649McfN34YihxxQQ3Ljkk8RiYUdqloWtG9JjJBg_HfxzB';
+const referenceKey = 'eSMH9CT8PaQ:APA91bFywI4NrqjcmxdhtQbMBLU_2n4sXSL-9Yk_dE1tKFzCT3taGbybkWTjBBp2_I2tiXJ_jw1A2SND6eXn5QnTDIXHmHHEN0Zt_vrmfpEDeSh5k-7HjFgowX8TNecuxFl9sN7oqwOF'; //Device Key
+const referenceKeyA = 'dQZsFcx8D1k:APA91bHtN3dPojQsAMzAVhbQONbTZsHnNzhZn-9wkMZ3xSreV1HBMw01XgO-N3KMRwcCa62ej1XrHoocGxsN1Tj5VB4ZflbCVhYtCwDdJNFdTLuBfKim9FpmuTCYltV3HHj0S4V7XhXR'; //Device Key
 const fcm = new FCM(serverKey);
 
 FCMServerApp.get("/", function(request, response){
@@ -14,16 +16,16 @@ function sendPush(response) {
     let message = {
         to: referenceKey,
         notification: {
-            title: 'Погода',
+            title: 'Тернопольская область',
             body: '"Погода заебца, идите все в леса, козлята скачат ну лугу, погода заебись? Угу"',
             click_action: "EVENT_NOTIFICATION"
         },
         data: {
             event_id: '345',
-            event_locale: "ru",
-            //event_text: 'Погода заебца, идите все в леса, козлята скачат ну лугу, погода заебись? Угу',
+            event_locale: "uk",
+            event_text: 'Погода заебца, идите все в леса, козлята скачат ну лугу, погода заебись? Угу',
             event_region: 'Тернопольская область',
-            created_at: '2019-12-19 18:34:32.000000'
+            event_created_at: '2019-12-19 18:34:32.000000'
         }
     };
 
@@ -39,4 +41,4 @@ function sendPush(response) {
     });
 }
 
-FCMServerApp.listen(3003);
+FCMServerApp.listen(3004);
