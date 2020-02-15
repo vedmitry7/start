@@ -4,8 +4,8 @@ const FCMServerApp = express();
 
 const serverKey = 'AAAAXaMYhJo:APA91bHBW0vg02GrIA9xTfntBkW2mtL12pX-DDuW8MJzfDOLRwu3h84Y4lBQ8aoo5Fh98szp5S3OMeo0j6SxIoWiqX3cF4L649McfN34YihxxQQ3Ljkk8RiYUdqloWtG9JjJBg_HfxzB';
 const serverKey2 = 'AAAAXaMYhJo:APA91bHBW0vg02GrIA9xTfntBkW2mtL12pX-DDuW8MJzfDOLRwu3h84Y4lBQ8aoo5Fh98szp5S3OMeo0j6SxIoWiqX3cF4L649McfN34YihxxQQ3Ljkk8RiYUdqloWtG9JjJBg_HfxzB';
-const referenceKey = 'eSMH9CT8PaQ:APA91bFywI4NrqjcmxdhtQbMBLU_2n4sXSL-9Yk_dE1tKFzCT3taGbybkWTjBBp2_I2tiXJ_jw1A2SND6eXn5QnTDIXHmHHEN0Zt_vrmfpEDeSh5k-7HjFgowX8TNecuxFl9sN7oqwOF'; //Device Key
-const referenceKeyA = 'dQZsFcx8D1k:APA91bHtN3dPojQsAMzAVhbQONbTZsHnNzhZn-9wkMZ3xSreV1HBMw01XgO-N3KMRwcCa62ej1XrHoocGxsN1Tj5VB4ZflbCVhYtCwDdJNFdTLuBfKim9FpmuTCYltV3HHj0S4V7XhXR'; //Device Key
+const referenceKey = 'c3qphH_Fy9s:APA91bHVOVLUgbM2L21R0yFHKbPuzG8duhk5LrhyheryBn7mCa1ZytuX5NVFGdWu7j00y17J2OLaw-wKu519Is4-yMHMmkWHL3B0wRZMzCiuLj1O_Jn-_xVFiph6Gjp9BDJ-534LwP0C'; //Device Key
+const referenceKeyA = 'cALNQEDtfyk:APA91bGkK7_aDK-RT7PlvlGomrlU177fUpP5jpimiDSOKudxuXDDGJ3soxvp-bKkU633deKPHAz1sIO-mm_i3zaHKwkj3mDf1lBvXRfHSGCpXxFg_s4rdSnNwf5DBengNLRZBP1SxsIZ'; //Device Key
 const fcm = new FCM(serverKey);
 
 FCMServerApp.get("/", function(request, response){
@@ -17,13 +17,13 @@ function sendPush(response) {
         to: referenceKey,
         notification: {
             title: 'Тернопольская область',
-            body: '"Погода заебца, идите все в леса, козлята скачат ну лугу, погода заебись? Угу"',
+            body: '"Алеша Алеша, Погода хуйня. Сиди лучше дома ведь дел дохуя"',
             click_action: "EVENT_NOTIFICATION"
         },
         data: {
             event_id: '345',
             event_locale: "uk",
-            event_text: 'Погода заебца, идите все в леса, козлята скачат ну лугу, погода заебись? Угу',
+            event_text: 'У Альошкиной гармошки Свой перебор,И все песни у Альошки,Как на подбор.Сам молчун, а руки громки,И оттого Он творит на старой хромке Впрямь волшебство. Ну, скажи мне, скажи мне, Открой секрет, Альошка, Ведь не зря, Альошка, Твоя гармошка Вздыхает по весне',
             event_region: 'Тернопольская область',
             event_created_at: '2019-12-19 18:34:32.000000'
         }
@@ -41,4 +41,4 @@ function sendPush(response) {
     });
 }
 
-FCMServerApp.listen(3004);
+FCMServerApp.listen(3005);
